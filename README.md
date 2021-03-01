@@ -5,7 +5,7 @@ cela permet d'installer des composants pour un projet
 
 ###Quelles relations existent entre les entités (Many To One/Many To Many/...) ? Faire un schéma de la base de données.
 
-![schema BDD](https://online.visual-paradigm.com/app/diagrams/#diagram:proj=0&type=ClassDiagram)
+![schema BDD](https://media.discordapp.net/attachments/755326178817998882/815880645762875403/unknown.png)
 
 ###Expliquer ce qu'est le fichier .env
 
