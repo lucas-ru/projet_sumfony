@@ -1,23 +1,25 @@
-Quelles sont les fonctionnalités principales du Symfony CLI ?
+###Quelles sont les fonctionnalités principales du Symfony CLI ?
 
 cela permet d'installer des composants pour un projet
 
 
-Quelles relations existent entre les entités (Many To One/Many To Many/...) ? Faire un schéma de la base de données.
+###Quelles relations existent entre les entités (Many To One/Many To Many/...) ? Faire un schéma de la base de données.
 
 ![schema BDD](https://online.visual-paradigm.com/app/diagrams/#diagram:proj=0&type=ClassDiagram)
 
-Expliquer ce qu'est le fichier .env
+###Expliquer ce qu'est le fichier .env
 
-Expliquer pourquoi il faut changer le connecteur à la base de données
+Le fichier .env contient les variables d environnement.
 
-Expliquer l'intérêt des migrations d'une base de données
+###Expliquer pourquoi il faut changer le connecteur à la base de données
 
-Faire une recherche sur les différentes solutions disponibles pour l'administration dans Symfony
+###Expliquer l'intérêt des migrations d'une base de données
 
-Travail préparatoire : Qu'est-ce que EasyAdmin ?
+###Faire une recherche sur les différentes solutions disponibles pour l'administration dans Symfony
 
-Pourquoi doit-on implémenter des méthodes to string dans nos entités?
+###Travail préparatoire : Qu'est-ce que EasyAdmin ?
 
-Qu'est-ce que le ParamConverter ? À quoi sert le Doctrine Param Converter ?
+###Pourquoi doit-on implémenter des méthodes to string dans nos entités?
+
+###Qu'est-ce que le ParamConverter ? À quoi sert le Doctrine Param Converter ?
 
