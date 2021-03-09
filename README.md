@@ -12,8 +12,11 @@ cela permet d'installer des composants pour un projet
 Le fichier .env contient les variables d environnement.
 
 ###Expliquer pourquoi il faut changer le connecteur à la base de données
+car il faut changer le mot de passe et l'identifiant pour que celui en local et celui en production soit différent
 
 ###Expliquer l'intérêt des migrations d'une base de données
+
+Les migrations permettent de faire du versionning sur la base de données. La version est stocké dans le dossier migration a la racine du projet.
 
 ###Faire une recherche sur les différentes solutions disponibles pour l'administration dans Symfony
 
