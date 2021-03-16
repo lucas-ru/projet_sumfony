@@ -1,0 +1,46 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+    <section id="article">
+        <h1>{{ post.title }}</h1>
+        <div class="article">
+            {{ post.content | raw }}
+        </div>
+    </section>
+
+    <section id="commentaires">
+        <h2>Les commentaires</h2>
+        {% for comment in post.comments %}
+            <div class="comment">
+                <div class="row">
+                    <div class="col-3">
+                        {{ comment.author }} (<small>{{ comment.createdAt | date('d/m/Y à H:i') }}</small>)
+                    </div>
+                    <div class="col">
+                        {{ comment.content | raw }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+    <section>
+        <h1>Créer un nouveau commentaire</h1>
+
+        {% form_theme formComment 'bootstrap_4_horizontal_layout.html.twig' %}
+        {{ form_start(formComment) }}
+
+        {{ form_row(formComment.content, {'attr': {'placeholder': "Contenu du commentaire"}}) }}
+
+
+        <button type="submit" class="btn btn-success">
+            Ajouter le commentaire
+        </button>
+
+        {{ form_end(formComment) }}
+    </section>
+    <a href="{{ path('post') }}" class="btn-primary">Retour</a>
+
+{% endblock %}

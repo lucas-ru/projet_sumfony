@@ -22,7 +22,28 @@ Les migrations permettent de faire du versionning sur la base de données. La ve
 
 ###Travail préparatoire : Qu'est-ce que EasyAdmin ?
 
+EasyAdmin permet de réaliser des pages d'administration back-end sur une application symphony
+
 ###Pourquoi doit-on implémenter des méthodes to string dans nos entités?
+
+les méthodes to string sont nécessaire pour pouvoir utiliser les entités dans le dashboard.
 
 ###Qu'est-ce que le ParamConverter ? À quoi sert le Doctrine Param Converter ?
 
+Cela sert a convertir les paramètres de la requete en objet
+
+###Qu'est-ce qu'un formulaire Symfony ?
+
+C'est un formulaire qui utilise des champs d'une ou plusieurs entités
+
+###Quels avantages offrent l'usage d'un formulaire ?
+
+Les formulaires symphony sont rapide et facile à utiliser
+
+###Quelles sont les différentes personalisations de formulaire qui peuvent être faites dans Symfony ?
+
+Dans Symfony, tous sont des «types de formulaires»:
+
+ - un seul champ de formulaire <input type="text">TextType
+ - un groupe de plusieurs champs HTML utilisés pour saisir une adresse postale(par exemple PostalAddressType);
+ - un ensemble <form>avec plusieurs champs pour éditer un profil d'utilisateur(par exemple UserProfileType).
