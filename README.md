@@ -138,7 +138,7 @@ Le composant DependencyInjection implémente un conteneur de services compatible
 
 ##Service
 
-Un service est une classe dans laquel on instancie des méthodes override.
+Un service est une classe dans laquel on instancie des méthodes.
 
 ##Autowiring
 
