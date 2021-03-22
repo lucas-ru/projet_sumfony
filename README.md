@@ -11,20 +11,26 @@ password: admin2
 
 ###Quelles sont les fonctionnalités principales du Symfony CLI ?
 
-cela permet d'installer des composants pour un projet
+cela permet d'installer des composants pour un projet  
+gérer l'application ds le cloud  
+créer des projets  
+gérer des versions  
+lancer un serveur http
 
 
 ###Quelles relations existent entre les entités (Many To One/Many To Many/...) ? Faire un schéma de la base de données.
 
 ![schema BDD](https://media.discordapp.net/attachments/755326178817998882/815880645762875403/unknown.png)
 
+! erreur post -> user: ManyToOne  
+! erreur comment -> post: ManyToOne
 ###Expliquer ce qu'est le fichier .env
 
 Le fichier .env contient les variables d environnement.
 
 ###Expliquer pourquoi il faut changer le connecteur à la base de données
 car il faut changer le mot de passe et l'identifiant pour que celui en local et celui en production soit différent
-
+faire du versionning
 ###Expliquer l'intérêt des migrations d'une base de données
 
 Les migrations permettent de faire du versionning sur la base de données. La version est stocké dans le dossier migration a la racine du projet.
@@ -73,6 +79,8 @@ Provider permet de gérer les sessions(authentification)
 
 Firewall permet de restreindre certains informations de l'application.Ces restrictions peuvent se faire en fonction: d'un chemin, d'un hôte, d'une méthode HTTP, d'un service.
 Le firewall est utile lors de l'authentification.
+porte d entré du site
+
 
 ##Access Control
 
@@ -81,20 +89,25 @@ Access Control permet de restreindre certaines pages de l'application.
 ## Role
 
 permet d'attribuer des roles au utilisateur
+niveau de permission des utili.
 
 ## Voter
 
 Voter permet de gérer les permissions
+tres restreint
 
 ###Qu'est-ce que FOSUserBundle ? Pourquoi ne pas l'utiliser ?
 
-FOSUserBundle permet de gerer les utilisateurs. Celui ci est un bundle de symphony.
+FOSUserBundle permet de gerer les utilisateurs niveau sécurité. Celui ci est un bundle de symphony.
 On ne l'utilise pas car les utilisateurs sont deja gérer.
+est inutil
 
 ###Définir les termes suivants : Argon2i, Bcrypt, Plaintext, BasicHTTP
 
 ##Argon2i
 Ca permet de crypter une chaine de caractère(mdp, etc...)
+surcouche de bcryptuep
+
 
 ##Bcrypt
 
