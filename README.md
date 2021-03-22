@@ -159,6 +159,6 @@ La validation se fait lors de la validation des données ou de la modification d
 
 Les 3 principaux normalizers
 
-ObjectNormalizer : utilise le composant pour accéder aux propriétés de l’objet. Cherche les propriétés public de l’objet, cherche toutes les méthodes public ayant en nom get/set/has/is/add/remove suivi d’un nom de propriété ainsi que les méthodes magiques.
-GetSetMethodNormalizer : utilise les getter/setter de l’objet. Cherche toutes les méthodes public ayant en nom get suivi d’un nom de propriété.
-PropertyNormalizer : utilise PHP reflexion pour accéder aux propriétés de l’objet. Cherche les propriétés public et private de l’objet.
+ObjectNormalizer : il utilise le composant pour accéder aux propriétés de l’objet. 
+GetSetMethodNormalizer : il utilise les getter/setter de l’objet. 
+PropertyNormalizer : il utilise PHP reflexion pour accéder aux propriétés de l’objet. 
