@@ -110,7 +110,7 @@ Cela permet de valider les authentification HTTP
 
 ###Expliquer le principe de hachage.
 
-Le hachage est une manière de crypter des données, c'est-à-dire que cela permet de rendre nom lisible une donnée.
+Le hachage est une manière de crypter des données, c'est-à-dire que cela permet de rendre non lisible une donnée.
 
 ###Faire un schema expliquant quelle méthode est appelée dans quel ordre dans le LoginFormAuthenticator . Définir l'objectif de chaque méthodes du fichier.
 
