@@ -157,6 +157,8 @@ La validation se fait lors de la validation des données ou de la modification d
 
 ###Quels sont les différentes parties du Serializer et à quoi servent-elles ?
 
+le normalizer sert a comparer des textes.
+
 Les 3 principaux normalizers
 
 ObjectNormalizer : il utilise le composant pour accéder aux propriétés de l’objet. 
