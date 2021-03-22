@@ -132,6 +132,8 @@ Si la méthode getUser retourne un utilisateur, la methode checkCredentials perm
 
 ##À quoi sert un service dans Symfony ? Avez-vous déjà utilisé des services dans ce projet ? Si oui, lesquels ? Définir les termes suivant : Dependency Injection, Service, Autowiring, Container
 
+Nous avons utilisé des services pour l'envoi de mail
+
 ##Dependency Injection
 
 Le composant DependencyInjection implémente un conteneur de services compatible qui vous permet de standardiser et de centraliser la façon dont les objets sont construits dans votre application.Le composant DependencyInjection implémente un conteneur de services compatible PSR-11 qui vous permet de standardiser et de centraliser la façon dont les objets sont construits dans votre application.
