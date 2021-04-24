@@ -1,4 +1,4 @@
-#Projet symfony
+###Projet symfony
 ## Réalisation d'un site permettant de simplifier la communication entre les étudiants et les professeurs
 
 Durant la période de covid, les élèves ainsi que les professeurs ont dû travailler de chez eux. Cette distance n'a pas aidé les élèves en difficulté et les enseignants, n'ayant pas pu se préparer, ont dû garder contact avec leurs élèves tout en faisant leurs cours. 
