@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}vos articles{% endblock %}
+
+{% block body %}
+
+    <div class="articles">
+        {{ post.title }}
+        {{ commentAuthor.author }}
+    </div>
+
+{% endblock %}

@@ -22,6 +22,9 @@
                     <div class="col">
                         {{ comment.content | raw }}
                     </div>
+                    <a href="{{ path('post_validate',{id_post: post.author.id, id_author:comment.author.id}) }}">
+                        Choose {{ comment.author }} to answer my question
+                    </a>
                 </div>
             </div>
         {% endfor %}

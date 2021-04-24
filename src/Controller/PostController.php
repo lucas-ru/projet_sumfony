@@ -51,6 +51,21 @@ class PostController extends AbstractController
         ]);
     }
 
+    #[Route('/post/answer{id_post}{id_author}', name: 'post_validate')]
+    public function validate(int $id_post,int $id_author): Response
+    {
+        $repoPost = $this->getDoctrine()->getRepository(Post::class);
+        $post = $repoPost->find($id_post);
+
+        $repoComment = $this->getDoctrine()->getRepository(Comment::class);
+        $form = $repoComment->find($id_author);
+
+        return $this->render('post/answer.html.twig', [
+            'post' => $post,
+            'commentAuthor' => $form
+        ]);
+    }
+
     #[Route('/post/{id}', name: 'post_show')]
     public function show(int $id, Request $request, Security $security): Response
     {
@@ -82,4 +97,6 @@ class PostController extends AbstractController
             'formComment' => $form->createView()
         ]);
     }
+
+
 }
