@@ -41,6 +41,7 @@ class RegistrationController extends AbstractController
 
             $user->setIsActive(true);
             $user->setIsBlocked(false);
+            $user->setLevelReward(0);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
