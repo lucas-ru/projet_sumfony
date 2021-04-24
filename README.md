@@ -7,6 +7,7 @@ Certains élèves, timide ou en difficulté, ont plus de problèmes pour s'adapt
 Notre site est là pour eux ! 
 Nous mettons à disposition une plateforme mettant l'accent sur la communication étudiants-professeurs et en valorisant les personnes qui se connectent le plus. 
 Les élèves ont la possibilité de poster leur problématique. 
+
 Toutes les personnes, professeurs ou élèves, peuvent y répondre. Certains préfèrent la pédagogie de personnes de leurs âges et d'autres préfèrent avoir des professeurs pour leur expliquer. 
 Quand la personne qui poste a trouvé celui ou celle qui lui correspond, il peut soit demander un rendez-vous Meet, soit lui parler en message privé.
 Les personnes ayant répondu gagnent tous des bonus pour récompenser leur participation !
