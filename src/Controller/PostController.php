@@ -54,11 +54,27 @@ class PostController extends AbstractController
     #[Route('/post/answer{id_post}{id_author}', name: 'post_validate')]
     public function validate(int $id_post,int $id_author): Response
     {
+        $manager = $this->getDoctrine()->getManager();
         $repoPost = $this->getDoctrine()->getRepository(Post::class);
         $post = $repoPost->find($id_post);
 
+        if (!$post) {
+            throw $this->createNotFoundException(
+                'No post found for id '.$id_post
+            );
+        }
+
         $repoComment = $this->getDoctrine()->getRepository(Comment::class);
         $form = $repoComment->find($id_author);
+
+        if (!$form) {
+            throw $this->createNotFoundException(
+                'No comment found for id '.$id_author
+            );
+        }
+
+        $post->setIspublished(false);
+        $manager->flush();
 
         return $this->render('post/answer.html.twig', [
             'post' => $post,

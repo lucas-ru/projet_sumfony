@@ -3,7 +3,7 @@
 {% block title %}vos articles{% endblock %}
 
 {% block body %}
-
+    <a href="{{ path('app_logout') }}">Logout</a>
     <div class="articles">
         {% for post in posts %}
             <div class="article">
