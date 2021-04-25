@@ -100,6 +100,8 @@ class PostController extends AbstractController
             $comment->setPost($post);
             $comment->setCreatedAt(new \DateTime());
             $comment->setAuthor($security->getUser());
+            $reward = $security->getUser()->getLevelReward();
+            $security->getUser()->setLevelReward($reward + 1);
 
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($comment);
@@ -110,7 +112,8 @@ class PostController extends AbstractController
 
         return $this->render('post/show.html.twig', [
             'post' => $post,
-            'formComment' => $form->createView()
+            'formComment' => $form->createView(),
+            'security' => $security->getUser()
         ]);
     }
 

@@ -22,9 +22,11 @@
                     <div class="col">
                         {{ comment.content | raw }}
                     </div>
+                    {% if post.author.id == security.id %}
                     <a href="{{ path('post_validate',{id_post: post.author.id, id_author:comment.author.id}) }}">
                         Choose {{ comment.author }} to answer my question
                     </a>
+                    {% endif %}}
                 </div>
             </div>
         {% endfor %}
@@ -36,7 +38,6 @@
         {{ form_start(formComment) }}
 
         {{ form_row(formComment.content, {'attr': {'placeholder': "Contenu du commentaire"}}) }}
-
 
         <button type="submit" class="btn btn-success">
             Ajouter le commentaire
