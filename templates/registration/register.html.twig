@@ -3,6 +3,7 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
+<div class="contentRegister">
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
@@ -18,9 +19,12 @@
         {{ form_row(registrationForm.role) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
-    <a href="{{ path('app_login') }}">
-        Login
-    </a>
+    <div class="contentRegisterButton">
+        <button type="submit" class="btn btnRegister">Register</button>
+        <a href="{{ path('app_login') }}" class="btn btnRegisterLogin">
+            Login
+        </a>
+    </div>
     {{ form_end(registrationForm) }}
+</div>
 {% endblock %}
