@@ -38,6 +38,7 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
+            $user->setRoles([$form->get('role')->getData()]);
 
             $user->setIsActive(true);
             $user->setIsBlocked(false);

@@ -1,7 +1,9 @@
 security:
     role_hierarchy:
         ROLE_AUTHOR: ROLE_USER
-        ROLE_ADMIN: ROLE_AUTHOR
+        ROLE_PROF: ROLE_USER
+        ROLE_STUDENT: ROLE_AUTHOR
+        ROLE_ADMIN: ROLE_AUTHOR,ROLE_PROF,ROLE_STUDENT
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         users_in_memory: { memory: null }
@@ -38,6 +40,11 @@ security:
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/post, role: ROLE_USER }
+        - { path: ^/post/create, role: ROLE_STUDENT }
+
+
+
+
 
     encoders:
         App\Entity\User:
