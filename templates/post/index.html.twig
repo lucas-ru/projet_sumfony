@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}vos articles{% endblock %}
+{% block title %}Vos articles{% endblock %}
 
 {% block body %}
-    <a href="{{ path('app_logout') }}">Logout</a>
-    <div class="articles">
-        {% for post in posts %}
-            <div class="article">
-                {{ post.title }}
-                <a href="{{ path('post_show', {'id': post.id}) }}" class="btn-primary">Lire la suite</a>
-            </div>
-        {% endfor %}
-    </div>
+<div class="menuIndex">
     {% if is_granted('ROLE_STUDENT') %}
-      <a href="{{ path('post_create') }}" class="btn-primary">Nouveau post</a>
+      <a href="{{ path('post_create') }}" class="btn-primary btnIndexLNewPost"><i class="fas fa-edit"></i>Nouveau post</a>
     {% endif %}
+    <a href="{{ path('app_logout') }}" class="btnIndexLogout"><i class="fas fa-power-off"></i>Déconnexion</a>
+</div>
+<div class="articles">
+    {% for post in posts %}
+        <div class="article articleIndex">
+            {{ post.title }}
+            <a href="{{ path('post_show', {'id': post.id}) }}" class="btn-primary btnReadMore">Lire la suite</a>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
