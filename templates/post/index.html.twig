@@ -1,21 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Vos articles{% endblock %}
+{% block title %}vos articles{% endblock %}
 
 {% block body %}
-<div class="menuIndex">
+    <div class="menuIndex">
+        {% if is_granted('ROLE_STUDENT') %}
+            <a href="{{ path('post_create') }}" class="btn-primary btnIndexLNewPost"><i class="fas fa-edit"></i>Nouveau post</a>
+        {% endif %}
+        <a href="{{ path('app_logout') }}" class="btnIndexLogout"><i class="fas fa-power-off"></i>Déconnexion</a>
+    </div>
+    <div class="articles" >
+        {% for post in posts %}
+            <div class="article" style="display: flex;flex-direction: row">
+                {{ post.title }}
+                <a href="{{ path('post_show', {'id': post.id}) }}" class="btn-primary">Lire la suite</a>
+                <div >
+                    {% if post.isPublished == true %}
+                        <img src="{{ asset('images/checked.png') }}" alt="" style="width: 50px;height: auto">
+                    {% else %}
+                        <img src="{{ asset('images/cross.png') }}" alt="" style="width: 50px;height: auto">
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
     {% if is_granted('ROLE_STUDENT') %}
-      <a href="{{ path('post_create') }}" class="btn-primary btnIndexLNewPost"><i class="fas fa-edit"></i>Nouveau post</a>
+        <a href="{{ path('post_create') }}" class="btn-primary">Nouveau post</a>
     {% endif %}
-    <a href="{{ path('app_logout') }}" class="btnIndexLogout"><i class="fas fa-power-off"></i>Déconnexion</a>
-</div>
-<div class="articles">
-    {% for post in posts %}
-        <div class="article articleIndex">
-            {{ post.title }}
-            <a href="{{ path('post_show', {'id': post.id}) }}" class="btn-primary btnReadMore">Lire la suite</a>
-        </div>
-    {% endfor %}
-</div>
 
 {% endblock %}

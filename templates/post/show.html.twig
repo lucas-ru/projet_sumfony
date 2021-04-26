@@ -23,7 +23,10 @@
                     <div class="col-3">
                         {{ comment.author }} (<small>{{ comment.createdAt | date('d/m/Y à H:i') }}</small>)
                     </div>
-                    {% if post.author.id == security.id %}
+                    <div class="col">
+                        {{ comment.content | raw }}
+                    </div>
+                    {% if (post.author.id == security.id and post.isPublished == true )  %}
                     <a href="{{ path('post_validate',{id_post: post.author.id, id_author:comment.author.id}) }}" class="linkChooseAuthor">
                         <i class="fas fa-check"></i>
                         Choose {{ comment.author }} to answer my question
@@ -33,6 +36,7 @@
             </div>
         {% endfor %}
     </section>
+    {% if post.isPublished == true %}
     <section>
         <h2>Créer un nouveau commentaire</h2>
 
@@ -47,4 +51,6 @@
 
         {{ form_end(formComment) }}
     </section>
+    {% endif %}
+
 {% endblock %}
