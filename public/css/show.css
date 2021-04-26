@@ -40,7 +40,6 @@
 
 .commentaires {
     border-top: 2px solid var(--grey-color);
-    border-bottom: 2px solid var(--grey-color);
     margin: 0 30px;
     padding: 20px 0;
 }
@@ -63,4 +62,16 @@
 
 .linkChooseAuthor:hover i {
     color: seagreen;
+}
+
+.contentBtnAdd {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .textShowCreatedAt {
+        width: 100% !important;
+    }
 }

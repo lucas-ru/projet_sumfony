@@ -20,7 +20,7 @@
                     <div class="col">
                         <p>{{ comment.content | raw }}</p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 textShowCreatedAt">
                         {{ comment.author }} (<small>{{ comment.createdAt | date('d/m/Y à H:i') }}</small>)
                     </div>
                     {% if (post.author.id == security.id and post.isPublished == true )  %}
@@ -34,7 +34,7 @@
         {% endfor %}
     </section>
     {% if post.isPublished == true %}
-    <section>
+    <section class="commentaires">
         <h2>Créer un nouveau commentaire</h2>
 
         {% form_theme formComment 'bootstrap_4_horizontal_layout.html.twig' %}
@@ -42,9 +42,11 @@
 
         {{ form_row(formComment.content, {'attr': {'placeholder': "Contenu du commentaire"}}) }}
 
-        <button type="submit" class="btn btn-success">
-            Ajouter le commentaire
-        </button>
+        <div class="contentBtnAdd">
+            <button type="submit" class="btn btn-success">
+                Ajouter le commentaire
+            </button>
+        </div>
 
         {{ form_end(formComment) }}
     </section>
