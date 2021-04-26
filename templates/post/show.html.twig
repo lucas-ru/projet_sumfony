@@ -22,7 +22,7 @@
                     <div class="col">
                         {{ comment.content | raw }}
                     </div>
-                    {% if post.author.id == security.id %}
+                    {% if (post.author.id == security.id and post.isPublished == true )  %}
                     <a href="{{ path('post_validate',{id_post: post.author.id, id_author:comment.author.id}) }}">
                         Choose {{ comment.author }} to answer my question
                     </a>
@@ -31,6 +31,7 @@
             </div>
         {% endfor %}
     </section>
+    {% if post.isPublished == true %}
     <section>
         <h1>Créer un nouveau commentaire</h1>
 
@@ -45,6 +46,7 @@
 
         {{ form_end(formComment) }}
     </section>
+    {% endif %}
     <a href="{{ path('post') }}" class="btn-primary">Retour</a>
 
 {% endblock %}

@@ -4,11 +4,18 @@
 
 {% block body %}
     <a href="{{ path('app_logout') }}">Logout</a>
-    <div class="articles">
+    <div class="articles" >
         {% for post in posts %}
-            <div class="article">
+            <div class="article" style="display: flex;flex-direction: row">
                 {{ post.title }}
                 <a href="{{ path('post_show', {'id': post.id}) }}" class="btn-primary">Lire la suite</a>
+                <div >
+                    {% if post.isPublished == true %}
+                        <img src="{{ asset('images/checked.png') }}" alt="" style="width: 50px;height: auto">
+                    {% else %}
+                        <img src="{{ asset('images/cross.png') }}" alt="" style="width: 50px;height: auto">
+                    {% endif %}
+                </div>
             </div>
         {% endfor %}
     </div>

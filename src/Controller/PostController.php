@@ -26,7 +26,7 @@ class PostController extends AbstractController
     }
 
     #[Route('/post/create', name: 'post_create')]
-    public function create(Request $request): Response
+    public function create(Request $request, Security $security): Response
     {
         $post = new Post();
         $this->denyAccessUnlessGranted('create', $post);
@@ -38,6 +38,7 @@ class PostController extends AbstractController
             $post->setCreateAt(new \DateTime());
             $post->setIsPublished(true);
             $post->setIsDeleted(false);
+            $post->setAuthor($security->getUser());
 
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($post);
