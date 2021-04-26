@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}vos articles{% endblock %}
+{% block title %}Vos articles{% endblock %}
 
 {% block body %}
     <div class="menuIndex">
@@ -16,9 +16,9 @@
                 <a href="{{ path('post_show', {'id': post.id}) }}" class="btn-primary btnReadMore">Lire la suite</a>
                 <div >
                     {% if post.isPublished == true %}
-                        <img src="{{ asset('images/checked.png') }}" alt="" style="width: 50px;height: auto">
+                        <img src="{{ asset('images/checked.png') }}" alt="checked">
                     {% else %}
-                        <img src="{{ asset('images/cross.png') }}" alt="" style="width: 50px;height: auto">
+                        <img src="{{ asset('images/cross.png') }}" alt="cross">
                     {% endif %}
                 </div>
             </div>
