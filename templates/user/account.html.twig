@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+    <div class="menuIndex">
+        <a href="{{ path('post') }}" class="btn-primary btnShowBack"><i class="fas fa-chevron-left"></i>Retour</a>
+        <a href="{{ path('app_logout') }}" class="btnIndexLogout"><i class="fas fa-power-off"></i>Déconnexion</a>
+    </div>
+    <div class="articles" >
+        {{ user.username }}
+        {{ user.email }}
+        {{ user.levelReward }}
+    </div>
+
+{% endblock %}
+

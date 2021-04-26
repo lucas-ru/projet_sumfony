@@ -4,6 +4,7 @@
 
 {% block body %}
     <div class="menuIndex">
+        <a href="{{ path('app_account') }}" class="btn-primary btnIndexLNewPost"><i class="fas fa-edit"></i>Mon compte</a>
         {% if is_granted('ROLE_STUDENT') %}
             <a href="{{ path('post_create') }}" class="btn-primary btnIndexLNewPost"><i class="fas fa-edit"></i>Nouveau post</a>
         {% endif %}
