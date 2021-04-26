@@ -1,0 +1,66 @@
+.articleShow {
+    margin: 15px 0;
+}
+
+.btnShowBack {
+    margin: 10px;
+    background-color: transparent;
+    color: #272727;
+    text-decoration: none;
+    transition: all 250ms;
+}
+
+.btnShowBack i {
+    margin-right: 10px;
+    transition: all 250ms;
+}
+
+.btnShowBack:hover {
+    background-color: transparent;
+    color: #0d6efd;
+}
+
+.btnShowBack:focus {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.btnShowBack:hover i {
+    color: #0d6efd;
+}
+
+.titleShow {
+    text-align: center;
+}
+
+.textShow {
+    text-align: center;
+}
+
+.commentaires {
+    border-top: 2px solid var(--grey-color);
+    border-bottom: 2px solid var(--grey-color);
+    margin: 0 30px;
+    padding: 20px 0;
+}
+
+.comment {
+    background-color: var(--grey-color);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.linkChooseAuthor,i {
+    text-decoration: none;
+    transition: all 250ms;
+}
+
+.linkChooseAuthor:hover {
+    color: seagreen;
+}
+
+.linkChooseAuthor:hover i {
+    color: seagreen;
+}

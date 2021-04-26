@@ -4,35 +4,37 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block body %}
-    <section id="article">
-        <h1>{{ post.title }}</h1>
-        <div class="article">
+<section id="article" class="articleShow">
+        <a href="{{ path('post') }}" class="btn-primary btnShowBack"><i class="fas fa-chevron-left"></i>Retour</a>
+        <h1 class="titleShow">{{ post.title }}</h1>
+        <div class="article textShow">
             {{ post.content | raw }}
         </div>
     </section>
 
-    <section id="commentaires">
+    <section id="commentaires" class="commentaires">
         <h2>Les commentaires</h2>
         {% for comment in post.comments %}
             <div class="comment">
                 <div class="row">
+                    <div class="col">
+                        <p>{{ comment.content | raw }}</p>
+                    </div>
                     <div class="col-3">
                         {{ comment.author }} (<small>{{ comment.createdAt | date('d/m/Y à H:i') }}</small>)
                     </div>
-                    <div class="col">
-                        {{ comment.content | raw }}
-                    </div>
                     {% if post.author.id == security.id %}
-                    <a href="{{ path('post_validate',{id_post: post.author.id, id_author:comment.author.id}) }}">
+                    <a href="{{ path('post_validate',{id_post: post.author.id, id_author:comment.author.id}) }}" class="linkChooseAuthor">
+                        <i class="fas fa-check"></i>
                         Choose {{ comment.author }} to answer my question
                     </a>
-                    {% endif %}}
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
     </section>
     <section>
-        <h1>Créer un nouveau commentaire</h1>
+        <h2>Créer un nouveau commentaire</h2>
 
         {% form_theme formComment 'bootstrap_4_horizontal_layout.html.twig' %}
         {{ form_start(formComment) }}
@@ -45,6 +47,4 @@
 
         {{ form_end(formComment) }}
     </section>
-    <a href="{{ path('post') }}" class="btn-primary">Retour</a>
-
 {% endblock %}
