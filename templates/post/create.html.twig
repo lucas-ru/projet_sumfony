@@ -12,17 +12,12 @@
 
     {{ form_row(formPost.title, {'attr': {'placeholder': "Titre de l'article"}}) }}
     {{ form_row(formPost.content, {'attr': {'placeholder': "Contenu de l'article"}}) }}
-    {{ form_row(formPost.author) }}
 
     <div class="btnAdd">
         <button type="submit" class="btn btn-success">
             Ajouter l'article
         </button>
     </div>
-
     {{ form_end(formPost) }}
-    <a href="{{ path('post') }}" class="btn-primary">Retour</a>
-
-
 </div>
 {% endblock %}
