@@ -3,7 +3,12 @@
 {% block title %}vos articles{% endblock %}
 
 {% block body %}
-    <a href="{{ path('app_logout') }}">Logout</a>
+    <div class="menuIndex">
+        {% if is_granted('ROLE_STUDENT') %}
+            <a href="{{ path('post_create') }}" class="btn-primary btnIndexLNewPost"><i class="fas fa-edit"></i>Nouveau post</a>
+        {% endif %}
+        <a href="{{ path('app_logout') }}" class="btnIndexLogout"><i class="fas fa-power-off"></i>Déconnexion</a>
+    </div>
     <div class="articles" >
         {% for post in posts %}
             <div class="article" style="display: flex;flex-direction: row">
@@ -20,7 +25,7 @@
         {% endfor %}
     </div>
     {% if is_granted('ROLE_STUDENT') %}
-      <a href="{{ path('post_create') }}" class="btn-primary">Nouveau post</a>
+        <a href="{{ path('post_create') }}" class="btn-primary">Nouveau post</a>
     {% endif %}
 
 {% endblock %}

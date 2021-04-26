@@ -1,0 +1,11 @@
+:root {
+    --main-color: #0d6efd;
+}
+
+body * {
+    color: #272727;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}

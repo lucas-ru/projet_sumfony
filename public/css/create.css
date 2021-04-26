@@ -1,0 +1,36 @@
+.contentCreate {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentCreate form {
+    width: 60%;
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+.btnAdd {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control {
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+    appearance: auto;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .contentCreate form {
+        width: 95%;
+    }
+}

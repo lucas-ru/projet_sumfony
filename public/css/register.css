@@ -1,0 +1,61 @@
+.contentRegister {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contentRegister form {
+    width: 30%;
+}
+
+.contentRegister form div {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.contentRegister form div:last-child {
+    justify-content: center;
+}
+
+.contentRegisterButton {
+    justify-content: center !important;
+    align-items: center;
+}
+
+.btnRegister {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btnRegister:hover {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.btnRegisterLogin {
+    color: #fff;
+    background-color: #979797;
+    border-color: #979797;
+    margin-left: 20px;
+}
+
+.btnRegisterLogin:hover {
+    color: #fff;
+    background-color: #8b8b8b;
+    border-color: #8b8b8b;
+}
+
+@media screen and (max-width: 768px) {
+    .contentRegister {
+        width: 100%;
+    }
+
+    .contentRegister form {
+        width: 90%;
+    }
+}

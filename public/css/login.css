@@ -1,0 +1,61 @@
+.contentLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.formLogin {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentInput {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.namePwInput {
+    width: 50%;
+}
+
+.buttonLogin {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentLinkNotRegistered {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.linkNotRegistered {
+    text-decoration: none;
+    transition: all 250ms;
+}
+
+.linkNotRegistered:hover {
+    color: var(--main-color);
+}
+
+@media screen and (max-width: 768px) {
+    .formLogin {
+        width: 90% !important;
+    }
+    .contentInput {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .buttonLogin {
+        margin-top: 20px;
+    }
+}
