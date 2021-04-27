@@ -11,6 +11,9 @@
         <h1 class="accountTitle">Bienvenue sur ton espace perso !</h1>
         <fieldset class="accountUsername"><legend>Ton pseudo</legend>
             {% if user.levelReward >20 %}
+            <strong>{{ user.username }}</strong>
+            <span class="accountChangePseudo" id="accountChangePseudo">Changer mon pseudo</span>
+            <div class="accountFormChangePseudo">
                 {% form_theme UserType 'bootstrap_4_horizontal_layout.html.twig' %}
                 {{ form_start(UserType) }}
 
@@ -23,6 +26,7 @@
                 </div>
 
                 {{ form_end(UserType) }}
+            </div>
             {% elseif user.levelReward >=20 and user.levelReward >10 %}
                 <I>{{ user.username }}</I>
             {% elseif user.levelReward <=19 %}
