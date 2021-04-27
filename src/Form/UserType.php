@@ -13,8 +13,6 @@ class UserType extends AbstractType
     {
         $builder
             ->add('username')
-            ->add('isActive')
-            ->add('isBlocked')
         ;
     }
 
