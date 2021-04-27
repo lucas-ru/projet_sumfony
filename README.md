@@ -15,4 +15,4 @@ Toutes les personnes, professeurs ou élèves, peuvent y répondre. Certains pr�
 
 Quand la personne qui poste a trouvé celui ou celle qui lui correspond, il peut soit demander un rendez-vous Meet, soit lui parler en message privé.
 
-Les personnes ayant répondu gagnent tous des bonus pour récompenser leur participation !
+Les personnes ayant répondu gagnent toutes des bonus pour récompenser leur participation !
