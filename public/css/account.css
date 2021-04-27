@@ -1,0 +1,15 @@
+.menuIndexAccount {
+    justify-content: space-between;
+    padding-left: 20px;
+}
+
+.btnShowBackAccount {
+    color: white;
+    text-decoration: none;
+    transition: all 250ms;
+}
+
+.btnShowBackAccount:hover {
+    border-bottom: 1px solid white;
+    background-color: transparent;
+}
