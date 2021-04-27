@@ -7,40 +7,45 @@
         <a href="{{ path('post') }}" class="btn-primary btnShowBackAccount"><i class="fas fa-chevron-left"></i>Retour</a>
         <a href="{{ path('app_logout') }}" class="btnIndexLogout"><i class="fas fa-power-off"></i>Déconnexion</a>
     </div>
-    <div class="articles" >
-        {% if user.levelReward >20 %}
-            {% form_theme UserType 'bootstrap_4_horizontal_layout.html.twig' %}
-            {{ form_start(UserType) }}
+    <div class="articles articlesAccount">
+        <h1 class="accountTitle">Bienvenue sur ton espace perso !</h1>
+        <fieldset class="accountUsername"><legend>Ton pseudo</legend>
+            {% if user.levelReward >20 %}
+                {% form_theme UserType 'bootstrap_4_horizontal_layout.html.twig' %}
+                {{ form_start(UserType) }}
 
-            {{ form_row(UserType.username, {'attr': {'placeholder': user.username}}) }}
+                {{ form_row(UserType.username, {'attr': {'placeholder': user.username}}) }}
 
-            <div class="contentBtnAdd">
-                <button type="submit" class="btn btn-success">
-                    Changer le pseudonyme
-                </button>
-            </div>
+                <div class="contentBtnAdd">
+                    <button type="submit" class="btn btn-success">
+                        Changer le pseudonyme
+                    </button>
+                </div>
 
-            {{ form_end(UserType) }}
-        {% elseif user.levelReward >=20 and user.levelReward >10 %}
-            <I>{{ user.username }}</I>
-        {% elseif user.levelReward <20 %}
-            {{ user.username }}
-        {% endif %}
+                {{ form_end(UserType) }}
+            {% elseif user.levelReward >=20 and user.levelReward >10 %}
+                <I>{{ user.username }}</I>
+            {% elseif user.levelReward <=19 %}
+                {{ user.username }}
+            {% endif %}
+        </fieldset>
 
 
 
-        {{ user.email }}
-        level :
-        {% if user.levelReward >=0 and user.levelReward <=5 %}
-            <img src="https://static-cdn.jtvnw.net/badges/v1/0d85a29e-79ad-4c63-a285-3acd2c66f2ba/1" alt="">
-        {% elseif user.levelReward >5 and user.levelReward <=10 %}
-            <img src="https://static-cdn.jtvnw.net/badges/v1/57cd97fc-3e9e-4c6d-9d41-60147137234e/1" alt="">
-        {% elseif user.levelReward >10 and user.levelReward <=20 %}
-            <img src="https://static-cdn.jtvnw.net/badges/v1/68af213b-a771-4124-b6e3-9bb6d98aa732/1" alt="">
-        {% elseif user.levelReward >20 %}
-            <img src="https://static-cdn.jtvnw.net/badges/v1/64ca5920-c663-4bd8-bfb1-751b4caea2dd/1" alt="">
-        {% endif %}
-         {{ user.levelReward }}
+        <fieldset class="accountEmail"><legend>Ton mail </legend>{{ user.email }}</fieldset>
+        <fieldset class="accountLevel">
+            <legend>Ton niveau </legend>
+            {{ user.levelReward }}
+            {% if user.levelReward >=0 and user.levelReward <=5 %}
+                <img src="https://static-cdn.jtvnw.net/badges/v1/0d85a29e-79ad-4c63-a285-3acd2c66f2ba/1" alt="">
+            {% elseif user.levelReward >5 and user.levelReward <=10 %}
+                <img src="https://static-cdn.jtvnw.net/badges/v1/57cd97fc-3e9e-4c6d-9d41-60147137234e/1" alt="">
+            {% elseif user.levelReward >10 and user.levelReward <=20 %}
+                <img src="https://static-cdn.jtvnw.net/badges/v1/68af213b-a771-4124-b6e3-9bb6d98aa732/1" alt="">
+            {% elseif user.levelReward >20 %}
+                <img src="https://static-cdn.jtvnw.net/badges/v1/64ca5920-c663-4bd8-bfb1-751b4caea2dd/1" alt="">
+            {% endif %}
+        </fieldset>
     </div>
 
 {% endblock %}
