@@ -5,9 +5,15 @@
 {% block body %}
 
     <div class="articles">
+        <a href="{{ path('post') }}" class="btn-primary btnShowBack"><i class="fas fa-chevron-left"></i>Retour</a>
+
         {{ post.title }}
         {{ commentAuthor.author }}
-        {{ post.ispublished }}
+        {% if post.isPublished %}
+            <div>true</div>
+        {% else %}
+            <div>false</div>
+        {% endif %}
     </div>
 
 {% endblock %}
