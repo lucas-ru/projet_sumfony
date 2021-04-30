@@ -10,20 +10,33 @@
 
 
     <div class="container">
-      <h1>{{ chat.name }}</h1>
+      <h1 class="titleChat">{{ chat.name }}</h1>
 
-      <div id="ws-content-receiver">
-        {% for msg in chat.messages %}
-        <div class="message">
-          {{ msg.authorMsg }} : {{ msg.content }} {{ msg.createdAt | date('d/m/Y à H:i') }}
-        </div>
-        {% endfor %}
+      <div class="newGoogleMeet">
+        <img src="{{ asset('images/googleMeet.png') }}" alt="google-meet" srcset="">
+        <a href="https://meet.google.com/new" target="_blank">Ouvrir un Google Meet</a>
       </div>
-      <input type="text" id="ws-content-to-send" />
-      <button id="ws-send-content">Send</button>
+      <div class="chatContent">
+        <div class="chatContainer">
+          <div id="ws-content-receiver">
+            {% for msg in chat.messages %}
+            <div class="message">
+              <div class="messageLeft">
+                <span class="messageAuthor">{{ msg.authorMsg }} : </span>
+                <span class="messageContent">{{ msg.content }}</span>
+              </div>
+              <span class="messageDate">{{ msg.createdAt | date('d/m/Y à H:i') }}</span>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="contentInputBtn">
+            <input type="text" id="ws-content-to-send" />
+            <button id="ws-send-content">Envoyer</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <a href="https://meet.google.com/new" target="_blank">Open google meet</a>
 
 {% endblock %}
 

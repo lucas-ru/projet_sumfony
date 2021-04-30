@@ -1,0 +1,100 @@
+.titleChat {
+    text-align: center;
+}
+
+.newGoogleMeet {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newGoogleMeet img {
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.newGoogleMeet a {
+    text-decoration: none;
+}
+
+.chatContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding-top: 50px;
+}
+
+.chatContainer {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: var(--grey-color);
+    border-radius: 4px;
+}
+
+.contentInputBtn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.contentInputBtn input {
+    width: 74%;
+}
+
+.contentInputBtn button {
+    width: 24%;
+    color: #fff;
+    background-color: #0d6efd;
+    border-radius: 4px;
+    border: none;
+}
+
+.messageAuthor {
+    width: 15%;
+}
+
+.messageContent {
+    word-break: break-all;
+}
+
+#ws-content-receiver {
+    width: 100%;
+    padding: 5px;
+    overflow-y: scroll;
+}
+
+#ws-content-receiver .message {
+    display: flex;
+    justify-content: space-between;
+}
+
+.messageLeft {
+    width: 70%;
+}
+
+@media screen and (max-width: 768px) {
+    .chatContainer {
+        width: 100%;
+        height: 100%;
+    }
+    #ws-content-receiver .message {
+        flex-direction: column;
+        margin: 5px 0;
+        border-bottom: 1px solid white;
+    }
+    .messageLeft {
+        width: 100%;
+    }
+    .messageDate {
+        text-align: right;
+    }
+}
