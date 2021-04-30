@@ -37,7 +37,7 @@
                         (<small>{{ comment.createdAt | date('d/m/Y à H:i') }}</small>)
                     </div>
                     {% if (post.author.id == security.id and post.isPublished == true )  %}
-                    <a href="{{ path('post_validate',{id_post: post.id, id_author:comment.author.id}) }}" class="linkChooseAuthor">
+                    <a href="{{ path('post_answer',{id_post: post.id, id_author:comment.id}) }}" class="linkChooseAuthor">
                         <i class="fas fa-check"></i>
                         Choose {{ comment.author }} to answer my question
                     </a>

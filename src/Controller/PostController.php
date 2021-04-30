@@ -4,11 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Entity\Post;
+use App\Entity\Chat;
+use App\Entity\MessageChat;
 use App\Form\CommentType;
 use App\Form\PostType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 
@@ -20,8 +23,12 @@ class PostController extends AbstractController
         $repo = $this->getDoctrine()->getRepository(Post::class);
         $posts = $repo->findAll();
 
+        $repoChat = $this->getDoctrine()->getRepository(Chat::class);
+        $chats = $repoChat->findAll();
+
         return $this->render('post/index.html.twig', [
             'posts' => $posts,
+            'chats' => $chats
         ]);
     }
 
@@ -52,7 +59,7 @@ class PostController extends AbstractController
         ]);
     }
 
-    #[Route('/post/answer{id_post}{id_author}', name: 'post_validate')]
+    #[Route('/post/answer{id_post}{id_author}', name: 'post_answer')]
     public function validate(int $id_post,int $id_author): Response
     {
         $manager = $this->getDoctrine()->getManager();
@@ -66,27 +73,76 @@ class PostController extends AbstractController
         }
 
         $repoComment = $this->getDoctrine()->getRepository(Comment::class);
-        $form = $repoComment->find($id_author);
+        $comment = $repoComment->find($id_author);
 
-        if (!$form) {
+        if (!$comment) {
             throw $this->createNotFoundException(
                 'No comment found for id '.$id_author
             );
         }
 
-        $post->setIspublished(false);
-        $manager->flush();
 
-        return $this->render('post/answer.html.twig', [
+        if ($this->getUser()->getId() == $post->getAuthor()->getId() || $this->getUser()->getId() == $comment->getAuthor()->getId()) {
+
+          $name_chat = '#Chat'.strval($id_post).strval($id_author);
+          $repoChat = $this->getDoctrine()->getRepository(Chat::class);
+          $chat = $repoChat->findBy(["name"=>$name_chat]);
+          if ($chat == null) {
+
+            $chat = new Chat();
+            $chat->setName($name_chat);
+            $chat->setIdPostAuthor($post->getAuthor()->getId());
+            $chat->setIdCommentAuthor($comment->getAuthor()->getId());
+            $chat->setIdPost($id_post);
+            $chat->setIdComment($id_author);
+            $manager->persist($chat);
+          } else {
+            $chat = $chat[0];
+          }
+
+          $post->setIspublished(false);
+          $manager->flush();
+
+          return $this->render('post/answer.html.twig', [
             'post' => $post,
-            'commentAuthor' => $form
-        ]);
+            'ws_url' => 'localhost:8080',
+            'name_chat' => $name_chat,
+            'chat' => $chat,
+            'commentAuthor' => $comment
+          ]);
+        } else {
+          return $this->redirectToRoute('post');
+        }
+
+    }
+
+    #[Route('/post/sendmsg', name: 'post_sendmsg')]
+    public function sendmsg(Request $request): Response
+    {
+      $data = json_decode($request->getContent());
+
+      $manager = $this->getDoctrine()->getManager();
+
+      $msgChat = new MessageChat();
+      $msgChat->setContent($request->request->get('content'));
+      $msgChat->setAuthorMsg($request->request->get('authorMsg'));
+      $msgChat->setCreatedAt(new \DateTime());
+
+      $repoChat = $this->getDoctrine()->getRepository(Chat::class);
+      $chat = $repoChat->findBy(["name"=>$request->request->get('chatName')]);
+      $msgChat->setChat($chat[0]);
+
+      $manager->persist($msgChat);
+      $manager->flush();
+
+      // dump($request->request);
+
+      return new JsonResponse("msg saved");
     }
 
     #[Route('/post/{id}', name: 'post_show')]
     public function show(int $id, Request $request, Security $security): Response
     {
-
 
         $repo = $this->getDoctrine()->getRepository(Post::class);
         $post = $repo->find($id);
@@ -117,6 +173,7 @@ class PostController extends AbstractController
             'security' => $security->getUser()
         ]);
     }
+
 
 
 }

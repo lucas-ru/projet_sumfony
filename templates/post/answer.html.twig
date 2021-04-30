@@ -1,19 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}vos articles{% endblock %}
+{% block title %}{{ chat.name }}{% endblock %}
 
 {% block body %}
 
     <div class="articles">
         <a href="{{ path('post') }}" class="btn-primary btnShowBack"><i class="fas fa-chevron-left"></i>Retour</a>
-
-        {{ post.title }}
-        {{ commentAuthor.author }}
-        {% if post.isPublished %}
-            <div>true</div>
-        {% else %}
-            <div>false</div>
-        {% endif %}
     </div>
 
+
+    <div class="container">
+      <h1>{{ chat.name }}</h1>
+
+      <div id="ws-content-receiver">
+        {% for msg in chat.messages %}
+        <div class="message">
+          {{ msg.authorMsg }} : {{ msg.content }} {{ msg.createdAt | date('d/m/Y à H:i') }}
+        </div>
+        {% endfor %}
+      </div>
+      <input type="text" id="ws-content-to-send" />
+      <button id="ws-send-content">Send</button>
+    </div>
+
+    <a href="https://meet.google.com/new" target="_blank">Open google meet</a>
+
+{% endblock %}
+
+{% block javascripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  let wsUrl = '{{ ws_url }}';
+  let userName = '{{ app.user.username }}';
+  let chanAnswer = '{{ chat.name }}';
+  </script>
+  <script type="text/javascript" src="{{ asset('js/sf-websocket.js') }}"></script>
 {% endblock %}
