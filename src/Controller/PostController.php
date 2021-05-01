@@ -14,12 +14,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 class PostController extends AbstractController
 {
     #[Route('/post', name: 'post')]
     public function index(): Response
     {
+
+
         $repo = $this->getDoctrine()->getRepository(Post::class);
         $posts = $repo->findAll();
 
@@ -62,6 +66,9 @@ class PostController extends AbstractController
     #[Route('/post/answer{id_post}{id_author}', name: 'post_answer')]
     public function validate(int $id_post,int $id_author): Response
     {
+        $process = new Process(['php bin/console run:chat']);
+        $process->start();
+        
         $manager = $this->getDoctrine()->getManager();
         $repoPost = $this->getDoctrine()->getRepository(Post::class);
         $post = $repoPost->find($id_post);

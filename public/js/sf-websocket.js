@@ -7,8 +7,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     // let userName = prompt('Hi! I need your name for the Chat please :)');
     let _receiver = document.querySelector('#ws-content-receiver');
     let ws = new WebSocket('ws://' + wsUrl);
-
-    // let chanAnswer = 'general';
+    let wsClosed = false;
     let botName = 'ChatBot';
 
     let _textInput = document.querySelector('#ws-content-to-send');
@@ -18,7 +17,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let sendTextInputContent = function () {
       // Get text input content
       let content = _textInput.value;
-      // addMessageToChannel(content);
 
       // Send it to WS
       ws.send(JSON.stringify({
@@ -28,7 +26,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         channel: chanAnswer
       }));
 
-      if (userName != botName) {
+      if (userName != botName && !wsClosed) {
         $.ajax({
 			    type: "POST",
 			    url: "/post/sendmsg",
@@ -47,16 +45,23 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let addMessageToChannel = function(message) {
       let obj = JSON.parse(message)
       let currentdate = new Date();
-      let datetime =  currentdate.getDate() + "/"
-                      + (currentdate.getMonth()+1)  + "/"
+      let datetime =  ('0' + currentdate.getDate()).slice(-2) + "/"
+                      + ('0' + (currentdate.getMonth() + 1)).slice(-2)  + "/"
                       + currentdate.getFullYear() + " à "
-                      + currentdate.getHours() + ":"
-                      + currentdate.getMinutes()
-      _receiver.innerHTML += '<div class="message">' + obj.user + " : " + obj.message + ' ' + datetime + '</div>';
+                      + ('0' + currentdate.getHours()).slice(-2) + ":"
+                      + ('0' + currentdate.getMinutes()).slice(-2);
 
+      _receiver.innerHTML += '<div class="message">'+
+                                '<div class="messageLeft">'+
+                                  '<span class="messageAuthor">' + obj.user +' : </span>'+
+                                  '<span class="messageContent"> ' + obj.message +' </span>'+
+                                '</div>'+
+                                '<span class="messageDate"> ' + datetime +' </span>'+
+                              '</div>';
 
-
-      // _receiver.innerHTML += '<div class="message">' + message + '</div>';
+      //permet de scroll au dernier message
+      let scrollHeight = Math.max(_receiver.scrollHeight, _receiver.clientHeight);
+      _receiver.scrollTop = scrollHeight - _receiver.clientHeight;
     };
 
     let botMessageToGeneral = function (message) {
@@ -82,10 +87,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     ws.onclose = function () {
       botMessageToGeneral('Connection closed');
+      wsClosed = true;
     };
 
     ws.onerror = function () {
       botMessageToGeneral('An error occured!');
+      wsClosed = true;
     };
 
 
