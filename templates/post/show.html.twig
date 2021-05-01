@@ -5,8 +5,12 @@
 
 {% block body %}
 <section id="article" class="articleShow">
-        <a href="{{ path('post') }}" class="btn-primary btnShowBack"><i class="fas fa-chevron-left"></i>Retour</a>
-        <h1 class="titleShow">{{ post.title }}</h1>
+    <div class="menuIndex menuIndexAccount menuShow">
+        <a href="{{ path('post') }}" class="btn-primary btnShowBackAccount"><i class="fas fa-chevron-left"></i>Retour</a>
+        <h1 class="titleStuder">Studer.</h1>
+        <a href="{{ path('app_logout') }}" class="btnIndexLogout"><i class="fas fa-power-off"></i>Déconnexion</a>
+    </div>
+        <h2 class="titleShow">{{ post.title }}</h2>
         <div class="article textShow">
             {{ post.content | raw }}
         </div>

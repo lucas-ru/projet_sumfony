@@ -4,13 +4,16 @@
 
 {% block body %}
     <div class="menuIndex">
-        <a href="{{ path('app_account') }}" class="btn-primary btnIndexLAccount"><i class="fas fa-user"></i></i><span>Mon compte</span></a>
-        {% if is_granted('ROLE_STUDENT') %}
-            <a href="{{ path('post_create') }}" class="btn-primary btnIndexLNewPost"><i class="fas fa-edit"></i>Nouveau post</a>
-        {% endif %}
-        <a href="{{ path('app_logout') }}" class="btnIndexLogout"><i class="fas fa-power-off"></i>Déconnexion</a>
+        <h1 class="titleStuder">Studer.</h1>
+        <div class="menuRight">
+            <a href="{{ path('app_account') }}" class="btn-primary btnIndexLAccount"><i class="fas fa-user"></i><span>Mon compte</span></a>
+            {% if is_granted('ROLE_STUDENT') %}
+                <a href="{{ path('post_create') }}" class="btn-primary btnIndexLNewPost"><i class="fas fa-edit"></i><span>Nouveau post</span></a>
+            {% endif %}
+            <a href="{{ path('app_logout') }}" class="btnIndexLogout"><i class="fas fa-power-off"></i><span>Déconnexion</span></a>
+        </div>
     </div>
-    <h1>Vos Posts</h1>
+    <h2>Vos Posts</h2>
     <div class="articles" >
         {% for post in posts %}
             <div class="article articleIndex">

@@ -3,12 +3,13 @@
 {% block title %}Studer | Mon compte{% endblock %}
 
 {% block body %}
-    <div class="menuIndex menuIndexAccount">
+    <div class="menuIndex menuIndexAccount menuShow">
         <a href="{{ path('post') }}" class="btn-primary btnShowBackAccount"><i class="fas fa-chevron-left"></i>Retour</a>
+        <h1 class="titleStuder">Studer.</h1>
         <a href="{{ path('app_logout') }}" class="btnIndexLogout"><i class="fas fa-power-off"></i>Déconnexion</a>
     </div>
     <div class="articles articlesAccount">
-        <h1 class="accountTitle">Bienvenue sur ton espace perso !</h1>
+        <h2 class="accountTitle">Bienvenue sur ton espace perso !</h2>
         <fieldset class="accountUsername"><legend>Ton pseudo</legend>
             {% if user.levelReward >20 %}
             <strong>{{ user.username }}</strong>

@@ -4,7 +4,15 @@
     background-color: var(--main-color);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+}
+
+.menuIndex .titleStuder {
+    color: white;
+}
+
+.menuRight {
+    display: flex;
 }
 
 .btnIndexLogout,.btnIndexLAccount {
@@ -23,7 +31,7 @@
 }
 
 .btnIndexLAccount:hover { 
-    border-color: white;
+    border-color: transparent;
     color: white;
     background-color: transparent;
 }
@@ -34,7 +42,6 @@
 }
 
 .btnIndexLogout:hover { 
-    border-color: white;
     color: white;
 }
 
@@ -50,7 +57,7 @@
 }
 
 .btnIndexLNewPost:hover { 
-    border-color: white;
+    border-color: transparent;
     color: white;
     background-color: transparent;
 }
@@ -105,5 +112,11 @@
     .articleIndex {
         width: 48%;
         margin: 10px 0;
+    }
+    .menuRight .btnIndexLNewPost span {
+        display: none;
+    }
+    .menuRight .btnIndexLogout span {
+        display: none;
     }
 }

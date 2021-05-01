@@ -3,7 +3,11 @@
 {% block title %}Studer | Créer un nouvel article{% endblock %}
 
 {% block body %}
-<a href="{{ path('post') }}" class="btn-primary btnShowBack"><i class="fas fa-chevron-left"></i>Retour</a>
+<div class="menuIndex menuIndexAccount menuShow">
+    <a href="{{ path('post') }}" class="btn-primary btnShowBackAccount"><i class="fas fa-chevron-left"></i>Retour</a>
+    <h1 class="titleStuder">Studer.</h1>
+    <a href="{{ path('app_logout') }}" class="btnIndexLogout"><i class="fas fa-power-off"></i>Déconnexion</a>
+</div>
 <div class="contentCreate">
     <h1>Créer un nouveau Post</h1>
 
