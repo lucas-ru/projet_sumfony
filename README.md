@@ -16,3 +16,11 @@ Toutes les personnes, professeurs ou élèves, peuvent y répondre. Certains pr�
 Quand la personne qui poste a trouvé celui ou celle qui lui correspond, il peut soit demander un rendez-vous Meet, soit lui parler en message privé.
 
 Les personnes ayant répondu gagnent toutes des bonus pour récompenser leur participation !
+
+### Pour lancer le site en Local
+
+Dans un terminal lancer cette commmande :
+`php -S 0.0.0.0:8000 -t public`
+
+Dans un second terminal lancer cette commande : 
+`php bin/console run:chat`
