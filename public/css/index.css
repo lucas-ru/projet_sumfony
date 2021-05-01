@@ -30,6 +30,14 @@
     color: white;
 }
 
+.btnIndexLNewPost span {
+    color: white;
+}
+
+.btnIndexLogout span {
+    color: white;
+}
+
 .btnIndexLAccount:hover { 
     border-color: transparent;
     color: white;
