@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Studer | Matchez vos connaissances{% endblock %}
 
 {% block body %}
 <div class="contentLogin">
@@ -15,12 +15,12 @@
             </div>
         {% endif %}
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
         <div class="contentInput">
             <div class="namePwInput">
-                <label for="inputUsername">Username</label>
+                <label for="inputUsername">Pseudo</label>
                 <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
-                <label for="inputPassword">Password</label>
+                <label for="inputPassword">Mot de passe</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" required>
         
                 <input type="hidden" name="_csrf_token"
@@ -40,11 +40,11 @@
             </div>
             <div class="buttonLogin">
                 <button class="btn btn-lg btn-primary" type="submit">
-                    Sign in
+                    Se connecter
                 </button>
                 <div class="contentLinkNotRegistered">
                     <a href="{{ path('app_register') }}" class="linkNotRegistered">
-                        You are not registered?
+                        Pas encore inscrit ?
                     </a>
                 </div>
             </div>
