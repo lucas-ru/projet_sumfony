@@ -1,17 +1,35 @@
 .contentLogin {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100%;
 }
 
-.formLogin {
-    width: 30%;
+.titleStu {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 30%;
+}
+
+.titleStuder {
+    font-size: 3.5rem;
+}
+
+.subTitleStuder {
+    font-size: 1.5rem;
+}
+
+.formLogin {
+    width: 30%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .contentInput {

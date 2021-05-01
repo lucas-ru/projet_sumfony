@@ -4,6 +4,10 @@
 
 {% block body %}
 <div class="contentLogin">
+    <div class="titleStu">
+        <h1 class="titleStuder">Studer.</h1>
+        <h2 class="subTitleStuder">Matchez vos connaissances.</h2>
+    </div>
     <form method="post" class="formLogin">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -15,7 +19,7 @@
             </div>
         {% endif %}
 
-        <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
+        <h2 class="h3 mb-3 font-weight-normal">Se connecter</h2>
         <div class="contentInput">
             <div class="namePwInput">
                 <label for="inputUsername">Pseudo</label>

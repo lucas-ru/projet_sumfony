@@ -4,33 +4,38 @@
 
 {% block body %}
 <div class="contentRegister">
+    <div class="titleStu">
+        <h1 class="titleStuder">Studer.</h1>
+        <h2 class="subTitleStuder">Matchez vos connaissances.</h2>
+    </div>
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
+    <div class="contentForm">
+        <h2>S'inscrire</h2>
 
-    <h1>S'inscrire</h1>
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.username, {
+                label: 'Pseudo'
+            }) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Mot de passe'
+            }) }}
+            {{ form_row(registrationForm.role, {
+                label: 'Rôle'
+            }) }}
+            {{ form_row(registrationForm.agreeTerms, {
+                label: "J'accepte les termes du site"
+            }) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username, {
-            label: 'Pseudo'
-        }) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Mot de passe'
-        }) }}
-        {{ form_row(registrationForm.role, {
-            label: 'Rôle'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms, {
-            label: "J'accepte les termes du site"
-        }) }}
-
-    <div class="contentRegisterButton">
-        <button type="submit" class="btn btnRegister">S'inscrire</button>
-        <a href="{{ path('app_login') }}" class="btn btnRegisterLogin">
-            Se connecter
-        </a>
+        <div class="contentRegisterButton">
+            <button type="submit" class="btn btnRegister">S'inscrire</button>
+            <a href="{{ path('app_login') }}" class="btn btnRegisterLogin">
+                Se connecter
+            </a>
+        </div>
+        {{ form_end(registrationForm) }}
     </div>
-    {{ form_end(registrationForm) }}
 </div>
 {% endblock %}
