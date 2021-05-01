@@ -13,3 +13,12 @@ body * {
 input[type="checkbox"] {
     cursor: pointer;
 }
+
+.btn-primary:active {
+    background-color: var(--main-color);
+}
+
+.btn-primary:focus {
+    background-color: var(--main-color);
+    box-shadow: none;
+}
