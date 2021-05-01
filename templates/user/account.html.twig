@@ -16,12 +16,12 @@
             <div class="accountFormChangePseudo">
                 {% form_theme UserType 'bootstrap_4_horizontal_layout.html.twig' %}
                 {{ form_start(UserType) }}
-
+                
                 {{ form_row(UserType.username, {'attr': {'placeholder': user.username}}) }}
 
                 <div class="contentBtnAdd">
                     <button type="submit" class="btn btn-success">
-                        Changer le pseudonyme
+                        Valider le changement
                     </button>
                 </div>
 

@@ -63,3 +63,16 @@
 .accountFormChangePseudo {
     display: none;
 }
+
+.contentBtnAdd .btn-success {
+    background-color: #0d6efd;
+    transition: all 250ms;
+    border-width: 2px;
+    border-color: white;
+}
+
+.contentBtnAdd .btn-success:hover {
+    background-color: white;
+    color: var(--main-color);
+    border-color: var(--main-color);
+}

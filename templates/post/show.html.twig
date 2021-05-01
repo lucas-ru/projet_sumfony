@@ -39,7 +39,7 @@
                     {% if (post.author.id == security.id and post.isPublished == true )  %}
                     <a href="{{ path('post_answer',{id_post: post.id, id_author:comment.id}) }}" class="linkChooseAuthor">
                         <i class="fas fa-check"></i>
-                        Choose {{ comment.author }} to answer my question
+                        Choisir {{ comment.author }} pour m'aider à résoudre mon problème
                     </a>
                     {% endif %}
                 </div>
